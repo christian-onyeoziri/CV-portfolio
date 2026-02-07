@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Onyeoziri | Mechanical Engineer & Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --accent: #FF6B35;
+            --accent-secondary: #F7931E;
+            --text: #E8E9ED;
+            --text-muted: #A0A3BD;
+            --surface: #1A1F3A;
+            --surface-light: #252B4A;
+            --grid-color: rgba(247, 147, 30, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Technical grid background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header/Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--surface-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--surface-light);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-secondary);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .experience-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-light);
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-secondary));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .experience-date {
+            color: var(--text-muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            background: var(--surface-light);
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+
+        .experience-description {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .experience-highlights {
+            list-style: none;
+        }
+
+        .experience-highlights li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .experience-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--surface-light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .skill-category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-secondary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--surface-light);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-light);
+            border-radius: 12px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.15);
+            border-color: var(--accent);
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--surface-light);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--surface-light);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <span class="tag">Mechanical Engineer & Innovator</span>
+                <h1>Christian Onyeoziri</h1>
+                <p class="subtitle">Designing the Future Through Engineering Excellence</p>
+                <p class="hero-description">
+                    Transforming complex engineering challenges into elegant solutions. Specializing in CAD design, 
+                    CNC programming, and manufacturing optimization with a proven track record of driving 70% efficiency improvements.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card scroll-animate">
+                <div class="stat-number">7+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card scroll-animate">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Max Efficiency Gain</div>
+            </div>
+            <div class="stat-card scroll-animate">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Prototype Projects</div>
+            </div>
+            <div class="stat-card scroll-animate">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Departments Managed</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">About Me</span>
+                <h2>Engineering Innovation Through Precision</h2>
+                <p class="section-description">
+                    Results-driven Mechanical Engineer with comprehensive experience in product design, fabrication, 
+                    and manufacturing systems optimization. I bring a unique blend of technical expertise in CAD/CAM 
+                    software and hands-on production management, consistently delivering solutions that improve 
+                    operational efficiency and product quality.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">Professional Journey</span>
+                <h2>Experience</h2>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Head of Fabrication</h3>
+                            <div class="experience-company">Innov8 Hub - F.C.T. Abuja</div>
+                        </div>
+                        <span class="experience-date">Jan 2022 - Present</span>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Lead engineering operations across 4 technical departments: CNC Milling, Laser Cutting, Metal Works, and Wood Working</li>
+                        <li>Developed comprehensive SOPs for fabrication processes to improve consistency and efficiency</li>
+                        <li>Specialized in CNC mill operation planning, programming, and execution</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Fabrication Engineer</h3>
+                            <div class="experience-company">Innov8 Hub - F.C.T. Abuja</div>
+                        </div>
+                        <span class="experience-date">Apr 2021 - Present</span>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Design mechanical components using SolidWorks, delivering 30% of all machine part designs</li>
+                        <li>Execute CNC milling projects using Fusion 360 CAM software, managing 90% of projects</li>
+                        <li>Lead fabrication of 10+ innovative prototypes, improving methods by 50%</li>
+                        <li>Conduct design reviews and provide technical guidance on material selection</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Production Manager</h3>
+                            <div class="experience-company">St. Table Water - Umuahia</div>
+                        </div>
+                        <span class="experience-date">Jan 2015 - Jun 2017</span>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Increased production output by 60% through preventive maintenance programs</li>
+                        <li>Reduced equipment downtime by 50% via systematic troubleshooting</li>
+                        <li>Managed 3 production departments and trained 15+ staff members</li>
+                        <li>Maintained PET blow machines, beverage filling systems, and packaging equipment</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Maintenance Technologist</h3>
+                            <div class="experience-company">Scientific Equipment Development Institute</div>
+                        </div>
+                        <span class="experience-date">Jul 2013 - Jun 2014</span>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Performed maintenance on 75% of production machinery including lathes and injection molding machines</li>
+                        <li>Improved production efficiency by 70% through systematic maintenance scheduling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">Technical Expertise</span>
+                <h2>Skills & Technologies</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category scroll-animate">
+                    <h3 class="skill-category-title">Design & CAD</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Fusion 360</span>
+                        <span class="skill-tag">3D Modeling</span>
+                        <span class="skill-tag">Product Design</span>
+                        <span class="skill-tag">Technical Drawing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-animate">
+                    <h3 class="skill-category-title">Manufacturing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CNC Programming</span>
+                        <span class="skill-tag">CAM Software</span>
+                        <span class="skill-tag">Machining</span>
+                        <span class="skill-tag">Fabrication</span>
+                        <span class="skill-tag">Prototyping</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-animate">
+                    <h3 class="skill-category-title">Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Mechanical Design</span>
+                        <span class="skill-tag">Process Optimization</span>
+                        <span class="skill-tag">Quality Assurance</span>
+                        <span class="skill-tag">DFM</span>
+                        <span class="skill-tag">System Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category scroll-animate">
+                    <h3 class="skill-category-title">Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Project Leadership</span>
+                        <span class="skill-tag">Team Coordination</span>
+                        <span class="skill-tag">SOP Development</span>
+                        <span class="skill-tag">Technical Training</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">Innovation Portfolio</span>
+                <h2>Featured Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card scroll-animate">
+                    <div class="project-icon">🔧</div>
+                    <h3 class="project-title">Mechanical Wheel-Powered Sprayer</h3>
+                    <p class="project-date">June 2014</p>
+                    <p class="project-description">
+                        Engineered innovative mechanical sprayer system improving operational efficiency and terrain 
+                        adaptability. Received Certificate of Merit for contribution to agricultural technology development.
+                    </p>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-icon">⚙️</div>
+                    <h3 class="project-title">Tiger Nut Drying Machine</h3>
+                    <p class="project-date">July 2012</p>
+                    <p class="project-description">
+                        Designed and fabricated automated drying system to optimize processing time and preserve 
+                        nutritional content for agricultural applications.
+                    </p>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-icon">🔬</div>
+                    <h3 class="project-title">Bio-oils & Biodiesel Extraction</h3>
+                    <p class="project-date">August 2020</p>
+                    <p class="project-description">
+                        Conducted research on thermal pre-treatment effects on bio-oil quality from African oil bean seeds, 
+                        contributing to sustainable energy technology development.
+                    </p>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-icon">🏆</div>
+                    <h3 class="project-title">Iconets Enterprise</h3>
+                    <p class="project-date">July 2019 - Present</p>
+                    <p class="project-description">
+                        Founded innovative engineering company specializing in agricultural machinery design and smart 
+                        automation solutions. Awarded I-FAIR Israel/Nigeria Innovator recognition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">Academic Background</span>
+                <h2>Education</h2>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">PGD - Agricultural and Bioresources Engineering</h3>
+                            <div class="experience-company">Michael Okpara University of Agriculture</div>
+                        </div>
+                        <span class="experience-date">Sept 2020</span>
+                    </div>
+                    <p class="experience-description">Graduated with Distinction</p>
+                </div>
+
+                <div class="experience-card scroll-animate">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">HND - Agricultural Engineering</h3>
+                            <div class="experience-company">Federal Polytechnic Nekede</div>
+                        </div>
+                        <span class="experience-date">July 2012</span>
+                    </div>
+                    <p class="experience-description">Upper Credit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content scroll-animate">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Let's Build Something Great</h2>
+                <p class="section-description">
+                    Interested in collaborating on engineering projects or discussing innovative solutions? 
+                    Feel free to reach out through any of the following channels.
+                </p>
+
+                <div class="contact-methods">
+                    <a href="mailto:iconetsenterprise@gmail.com" class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">iconetsenterprise@gmail.com</div>
+                    </a>
+
+                    <a href="tel:+2348034913133" class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+234 803 491 3133</div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/christian-onyeoziri" target="_blank" class="contact-card">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">christian-onyeoziri</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Christian Onyeoziri. Engineered with precision.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
